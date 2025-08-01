@@ -206,7 +206,7 @@ with st.sidebar:
             </style>
             <div class='sidebar-logo'>
                 <img class='colorful-animated-logo' src='data:image/png;base64,{encoded_logo}' alt='Logo' style='width:150px;height:150px;'>
-                <div style='color:#00c6ff;font-size:1.1em;font-family:sans-serif;font-weight:bold;text-shadow:0 1px 6px #ffd200;margin-top:8px;'>Visualization Saathi</div>
+                <div style='color:#00c6ff;font-size:1.1em;font-family:sans-serif;font-weight:bold;text-shadow:0 1px 6px #ffd200;margin-top:8px;'>Professor.Team.Agent</div>
             </div>
             <!-- Second logo below the first -->
             <div class='sidebar-AI' style='margin-top:0;'>
@@ -748,3 +748,4 @@ st.markdown("""
   <div class='ai-team-footer'>🚀 Unlock your learning potential with your personal AI-powered teaching team!</div>
 </div>
 """, unsafe_allow_html=True)
+
