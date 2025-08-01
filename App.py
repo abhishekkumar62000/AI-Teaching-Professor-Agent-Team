@@ -1,6 +1,7 @@
 
 
 import streamlit as st
+import base64
 from agno.agent import Agent, RunResponse
 from agno.models.openai import OpenAIChat
 import os
@@ -164,8 +165,71 @@ if 'topic' not in st.session_state:
     st.session_state['topic'] = ''
 
 
-# Streamlit sidebar for API keys, user profile, and gamification
+
+# --- Sidebar Logo with Unique Style and Animation ---
+logo_path = os.path.join(os.path.dirname(__file__), "Logo.png")
+ai_logo_path = os.path.join(os.path.dirname(__file__), "AI.png")
+encoded_logo = None
+encoded_ai_logo = None
+if os.path.exists(logo_path):
+    with open(logo_path, "rb") as image_file:
+        encoded_logo = base64.b64encode(image_file.read()).decode()
+if os.path.exists(ai_logo_path):
+    with open(ai_logo_path, "rb") as image_file:
+        encoded_ai_logo = base64.b64encode(image_file.read()).decode()
+
 with st.sidebar:
+    # Logo and animated style
+    if encoded_logo:
+        st.markdown(
+            f"""
+            <style>
+            @keyframes colorfulGlow {{
+                0% {{ box-shadow: 0 0 24px #ffd200, 0 0 0px #00c6ff; filter: hue-rotate(0deg); }}
+                25% {{ box-shadow: 0 0 32px #00c6ff, 0 0 12px #f7971e; filter: hue-rotate(90deg); }}
+                50% {{ box-shadow: 0 0 40px #f7971e, 0 0 24px #ffd200; filter: hue-rotate(180deg); }}
+                75% {{ box-shadow: 0 0 32px #00c6ff, 0 0 12px #ffd200; filter: hue-rotate(270deg); }}
+                100% {{ box-shadow: 0 0 24px #ffd200, 0 0 0px #00c6ff; filter: hue-rotate(360deg); }}
+            }}
+            .colorful-animated-logo {{
+                animation: colorfulGlow 2.5s linear infinite;
+                transition: box-shadow 0.3s, filter 0.3s;
+                border-radius: 30%;
+                box-shadow: 0 2px 12px #00c6ff;
+                border: 2px solid #ffd200;
+                background: #232526;
+                object-fit: cover;
+            }}
+            .sidebar-logo {{
+                text-align: center;
+                margin-bottom: 12px;
+            }}
+            </style>
+            <div class='sidebar-logo'>
+                <img class='colorful-animated-logo' src='data:image/png;base64,{encoded_logo}' alt='Logo' style='width:150px;height:150px;'>
+                <div style='color:#00c6ff;font-size:1.1em;font-family:sans-serif;font-weight:bold;text-shadow:0 1px 6px #ffd200;margin-top:8px;'>Visualization Saathi</div>
+            </div>
+            <!-- Second logo below the first -->
+            <div class='sidebar-AI' style='margin-top:0;'>
+                {f"<img src='data:image/png;base64,{encoded_ai_logo}' alt='AI' style='width:210px;height:220px;border-radius:30%;box-shadow:0 2px 12px #00c6ff;border:2px solid #ffd200;margin-bottom:8px;background:#232526;object-fit:cover;'>" if encoded_ai_logo else "<div style='color:#ff4b4b;'>AI.png not found</div>"}
+                <div style='color:#00c6ff;font-size:1.1em;font-family:sans-serif;font-weight:bold;text-shadow:0 1px 6px #ffd200;margin-top:8px;'></div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        # Developer info and image below the logos
+        st.markdown("<div style='text-align:center;font-size:1.1em;margin-top:10px;'>👨👨‍💻<b>Developer:</b> Abhishek💖Yadav</div>", unsafe_allow_html=True)
+        developer_path = os.path.join(os.path.dirname(__file__), "pic.jpg")
+        if os.path.exists(developer_path):
+            st.image(developer_path, caption="Abhishek Yadav", use_container_width=True)
+        else:
+            st.warning("pic.jpg file not found. Please check the file path.")
+    else:
+        st.markdown(
+            "<div style='text-align:center;font-size:2em;margin:16px 0;'>🚀</div><div style='text-align:center;color:#00c6ff;font-weight:bold;'>NewsCraft.AI</div>",
+            unsafe_allow_html=True
+        )
+    # ...existing code for sidebar user profile and gamification...
     st.markdown("""
     <div style='background: linear-gradient(120deg, #6a82fb 0%, #fc5c7d 100%); border-radius: 16px; padding: 1.2em 1em 1em 1em; box-shadow: 0 2px 12px 0 #fc5c7d44;'>
         <h2 style='color:#fff; text-align:center; margin-bottom:0.7em;'>👤 User Profile & Progress</h2>
