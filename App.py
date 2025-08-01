@@ -5,7 +5,6 @@ import base64
 from agno.agent import Agent, RunResponse
 from agno.models.openai import OpenAIChat
 import os
-from dotenv import load_dotenv
 from agno.tools.arxiv import ArxivTools
 from agno.utils.pprint import pprint_run_response
 from agno.tools.serpapi import SerpApiTools
@@ -153,14 +152,14 @@ body, .stApp {
 st.set_page_config(page_title="👨‍🏫 AI Teaching Agent Team", layout="centered")
 
 
-# --- Load .env and set API keys from environment if not set by user ---
-load_dotenv()
+
+# --- Fetch API keys from Streamlit secrets (for Streamlit Cloud) or environment as fallback ---
 if 'openai_api_key' not in st.session_state or not st.session_state['openai_api_key']:
-    st.session_state['openai_api_key'] = os.getenv('OPENAI_API_KEY', '')
+    st.session_state['openai_api_key'] = st.secrets.get('OPENAI_API_KEY', os.getenv('OPENAI_API_KEY', ''))
 if 'composio_api_key' not in st.session_state or not st.session_state['composio_api_key']:
-    st.session_state['composio_api_key'] = os.getenv('COMPOSIO_API_KEY', '')
+    st.session_state['composio_api_key'] = st.secrets.get('COMPOSIO_API_KEY', os.getenv('COMPOSIO_API_KEY', ''))
 if 'serpapi_api_key' not in st.session_state or not st.session_state['serpapi_api_key']:
-    st.session_state['serpapi_api_key'] = os.getenv('SERP_API_KEY', '')
+    st.session_state['serpapi_api_key'] = st.secrets.get('SERP_API_KEY', os.getenv('SERP_API_KEY', ''))
 if 'topic' not in st.session_state:
     st.session_state['topic'] = ''
 
