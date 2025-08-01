@@ -217,7 +217,8 @@ with st.sidebar:
             unsafe_allow_html=True
         )
         # Developer info and image below the logos
-        st.markdown("<div style='text-align:center;font-size:1.1em;margin-top:10px;'>👨👨‍💻<b>Developer:</b> Abhishek💖Yadav</div>", unsafe_allow_html=True)
+        st.markdown("<div style='text-align:center;font-size:1.1em;margin-top:10px;'>👨👨‍💻<b>Developer:</b> <br>Abhishek💖Yadav</br></div>", unsafe_allow_html=True)
+            developer_path = os.path.join(os.path.dirname(__file__), "pic.jpg")
         developer_path = os.path.join(os.path.dirname(__file__), "pic.jpg")
         if os.path.exists(developer_path):
             st.image(developer_path, caption="Abhishek Yadav", use_container_width=True)
@@ -748,4 +749,5 @@ st.markdown("""
   <div class='ai-team-footer'>🚀 Unlock your learning potential with your personal AI-powered teaching team!</div>
 </div>
 """, unsafe_allow_html=True)
+
 
