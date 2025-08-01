@@ -7,4 +7,5 @@ composio_core
 composio
 google-search-results
 arxiv
+pypdf
 duckduckgo-search
