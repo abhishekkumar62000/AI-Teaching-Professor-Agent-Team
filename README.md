@@ -1,8 +1,8 @@
 <img width="1024" height="1024" alt="AI" src="https://github.com/user-attachments/assets/ed411470-d61d-4669-bbb1-ba1454c2385b" />
+OUR APP:-- 
 
-<img width="1916" height="1080" alt="page0" src="https://github.com/user-attachments/assets/fabb6f58-8718-4837-82fe-a58ce4fd07aa" />
-<img width="1916" height="1080" alt="page1" src="https://github.com/user-attachments/assets/418d0c03-5682-4b8c-a69f-3fb8946ee14a" />
-
+<img width="1916" height="1080" alt="page0" src="https://github.com/user-attachments/assets/5b7224c6-af97-4a46-90f4-03896a63b7d3" />
+<img width="1916" height="1080" alt="page1" src="https://github.com/user-attachments/assets/23ab5aa0-e54e-4e33-a701-714a11f7fdf0" />
 
 https://github.com/user-attachments/assets/88f8bebf-4748-4ee6-94a2-c1b450792fb7
 https://github.com/user-attachments/assets/62ce8894-9093-4408-b273-2e01e9c61dbd
