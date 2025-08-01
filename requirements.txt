@@ -1,9 +1,10 @@
-streamlit
-openai
-duckduckgo-search
-typing-extensions
-agno
+streamlit>=1.25.0
+openai>=1.0.0
+python-dotenv>=1.0.0
+agno>=0.1.0
 composio-phidata
 composio_core
 composio
 google-search-results
+arxiv
+duckduckgo-search
